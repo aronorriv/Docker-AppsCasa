@@ -26,7 +26,7 @@ services:
     stop_grace_period: 1m0s
     volumes:
       - type: bind
-        source: /DATA/AppData/RonsTailscale
+        source: /DATA/AppData/Tailscale
         target: /var/lib
       - type: bind
         source: /dev/net/tun
