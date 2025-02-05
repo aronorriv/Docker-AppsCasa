@@ -1,0 +1,51 @@
+name: casaos-tailscale
+services:
+  tailscale:
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    cpu_shares: 90
+    command:
+      - /bin/sh
+      - -c
+      - |
+        tailscaled --tun=userspace-networking &
+        sleep 2
+        tailscale web --listen 0.0.0.0:8240
+        wait
+    container_name: CasaOS-Tailscale
+    deploy:
+      resources:
+        limits:
+          memory: 7937M
+    hostname: CasaOS-Tailscale
+    image: tailscale/tailscale:v1.80.0
+    labels:
+      icon: https://raw.githubusercontent.com/aronorriv/CasaOS-Apps-Logos/refs/heads/main/tailscale%20icon.png
+    restart: unless-stopped
+    stop_grace_period: 1m0s
+    volumes:
+      - type: bind
+        source: /DATA/AppData/RonsTailscale
+        target: /var/lib
+      - type: bind
+        source: /dev/net/tun
+        target: /dev/net/tun
+    ports: []
+    devices: []
+    environment: []
+    network_mode: host
+    privileged: false
+x-casaos:
+  author: self
+  category: self
+  hostname: 
+  icon: https://raw.githubusercontent.com/aronorriv/CasaOS-Apps-Logos/refs/heads/main/tailscale%20icon.png
+  index: /
+  is_uncontrolled: false
+  port_map: "8240"
+  scheme: http
+  store_app_id: casaos-tailscale
+  title:
+    custom: Tailscale
+    en_us: tailscale

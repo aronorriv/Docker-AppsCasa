@@ -1,0 +1,80 @@
+name: beszel
+services:
+  beszel:
+    cpu_shares: 90
+    command: []
+    container_name: beszel
+    deploy:
+      resources:
+        limits:
+          memory: 7937M
+    hostname: beszel
+    image: henrygd/beszel:0.9.1
+    labels:
+      icon: https://raw.githubusercontent.com/aronorriv/CasaOS-Apps-Logos/refs/heads/main/beszel%20Logo.png
+    ports:
+      - mode: ingress
+        target: 8090
+        published: "8090"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /DATA/AppData/Beszel/data
+        target: /beszel_data
+        bind:
+          create_host_path: true
+    devices: []
+    cap_add: []
+    environment: []
+    networks:
+      - beszel_network
+    privileged: false
+  beszel-agent:
+    cpu_shares: 90
+    command: []
+    container_name: beszel-agent
+    deploy:
+      resources:
+        limits:
+          memory: 7937M
+    environment:
+      - KEY=...
+      - PORT=45876
+    hostname: beszel-agent
+    image: henrygd/beszel-agent:0.9.1
+    labels:
+      icon: https://raw.githubusercontent.com/aronorriv/CasaOS-Apps-Logos/refs/heads/main/beszel%20Logo.png
+    ports:
+      - target: 45876
+        published: "45876"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+    devices: []
+    cap_add: []
+    networks:
+      - beszel_network
+    privileged: false
+networks:
+  beszel_network:
+    name: beszel_combined_network
+    driver: bridge
+x-casaos:
+  author: self
+  category: self-hosted
+  description:
+    en_us: Combined configuration for Beszel and Beszel-Agent.
+  hostname: 
+  icon: https://raw.githubusercontent.com/aronorriv/CasaOS-Apps-Logos/refs/heads/main/beszel%20Logo.png
+  index: /
+  is_uncontrolled: false
+  port_map: "8090"
+  scheme: http
+  store_app_id: beszel
+  title:
+    custom: Beszel
+    en_us: Beszel Combined
