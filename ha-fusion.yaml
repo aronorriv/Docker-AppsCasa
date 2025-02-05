@@ -1,0 +1,43 @@
+name: patient_alvaro
+services:
+  ha-fusion:
+    cpu_shares: 90
+    command: []
+    container_name: ha-fusion
+    deploy:
+      resources:
+        limits:
+          memory: 7937M
+    environment:
+      - HASS_URL=http://192.168.10.10:8123
+      - TZ=Atlantic/Reykjavik
+    hostname: ha-fusion
+    image: ghcr.io/matt8707/ha-fusion:latest
+    labels:
+      icon: https://raw.githubusercontent.com/aronorriv/CasaOS-Apps-Logos/707d6512f2f953a9f41332c7dc4c431363322328/ha%20fusionicon.svg
+    ports:
+      - target: 5050
+        published: "5052"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /DATA/AppData/HAFusion
+        target: /app/data
+    devices: []
+    cap_add: []
+    network_mode: bridge
+    privileged: false
+x-casaos:
+  author: self
+  category: self
+  hostname: 192.168.10.180
+  icon: https://raw.githubusercontent.com/aronorriv/CasaOS-Apps-Logos/707d6512f2f953a9f41332c7dc4c431363322328/ha%20fusionicon.svg
+  index: /
+  is_uncontrolled: false
+  port_map: "5052"
+  scheme: http
+  store_app_id: patient_alvaro
+  title:
+    custom: ""
+    en_us: ha-fusion
