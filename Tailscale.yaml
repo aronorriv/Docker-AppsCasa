@@ -19,7 +19,7 @@ services:
         limits:
           memory: 7937M
     hostname: CasaOS-Tailscale
-    image: tailscale/tailscale:v1.80.0
+    image: tailscale/tailscale:v1.78.3
     labels:
       icon: https://raw.githubusercontent.com/aronorriv/CasaOS-Apps-Logos/refs/heads/main/tailscale%20icon.png
     restart: unless-stopped
