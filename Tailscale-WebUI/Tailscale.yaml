@@ -21,7 +21,7 @@ services:
     hostname: CasaOS-Tailscale
     image: tailscale/tailscale:v1.78.3
     labels:
-      icon: https://raw.githubusercontent.com/aronorriv/Docker-AppsCasa/refs/heads/main/Tailscale-webui/tailscale%20icon.png
+      icon: https://raw.githubusercontent.com/aronorriv/Docker-AppsCasa/refs/heads/main/Tailscale-WebUI/tailscale%20icon.png
     restart: unless-stopped
     stop_grace_period: 1m0s
     volumes:
@@ -40,7 +40,7 @@ x-casaos:
   author: self
   category: self
   hostname: 
-  icon: https://raw.githubusercontent.com/aronorriv/Docker-AppsCasa/refs/heads/main/Tailscale-webui/tailscale%20icon.png
+  icon: https://raw.githubusercontent.com/aronorriv/Docker-AppsCasa/refs/heads/main/Tailscale-WebUI/tailscale%20icon.png
   index: /
   is_uncontrolled: false
   port_map: "8240"
