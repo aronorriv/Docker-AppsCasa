@@ -11,7 +11,7 @@ services:
     hostname: beszel
     image: henrygd/beszel:0.9.1
     labels:
-      icon: https://raw.githubusercontent.com/aronorriv/CasaOS-Apps-Logos/refs/heads/main/beszel%20Logo.png
+      icon: https://raw.githubusercontent.com/aronorriv/Docker-AppsCasa/refs/heads/main/Beszel/beszel%20Logo.png
     ports:
       - mode: ingress
         target: 8090
@@ -40,7 +40,7 @@ x-casaos:
   description:
     en_us: Beszel Server.
   hostname: 
-  icon: https://raw.githubusercontent.com/aronorriv/CasaOS-Apps-Logos/refs/heads/main/beszel%20Logo.png
+  icon: https://raw.githubusercontent.com/aronorriv/Docker-AppsCasa/refs/heads/main/Beszel/beszel%20Logo.png
   index: /
   is_uncontrolled: false
   port_map: "8090"
