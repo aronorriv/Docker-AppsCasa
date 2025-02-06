@@ -14,7 +14,7 @@ services:
     hostname: ha-fusion
     image: ghcr.io/matt8707/ha-fusion:latest
     labels:
-      icon: https://raw.githubusercontent.com/aronorriv/CasaOS-Apps-Logos/707d6512f2f953a9f41332c7dc4c431363322328/ha%20fusionicon.svg
+      icon: https://raw.githubusercontent.com/aronorriv/Docker-AppsCasa/ae886e6b9372fa848aac67b9011fca916be43549/Home%20Assistant%20Fusion/ha%20fusionicon.svg
     ports:
       - target: 5050
         published: "5052"
@@ -32,7 +32,7 @@ x-casaos:
   author: self
   category: self
   hostname: 192.168.10.180
-  icon: https://raw.githubusercontent.com/aronorriv/CasaOS-Apps-Logos/707d6512f2f953a9f41332c7dc4c431363322328/ha%20fusionicon.svg
+  icon: https://raw.githubusercontent.com/aronorriv/Docker-AppsCasa/ae886e6b9372fa848aac67b9011fca916be43549/Home%20Assistant%20Fusion/ha%20fusionicon.svg
   index: /
   is_uncontrolled: false
   port_map: "5052"
