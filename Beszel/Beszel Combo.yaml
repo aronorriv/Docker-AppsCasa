@@ -1,4 +1,4 @@
-name: beszel-combined
+name: beszel
 services:
   beszel:
     cpu_shares: 90
@@ -56,8 +56,7 @@ services:
         target: /var/run/docker.sock
     devices: []
     cap_add: []
-    networks:
-      - beszel_network
+    network_mode: host
     privileged: false
 networks:
   beszel_network:
@@ -74,7 +73,7 @@ x-casaos:
   is_uncontrolled: false
   port_map: "8090"
   scheme: http
-  store_app_id: beszel-combined
+  store_app_id: beszel
   title:
     custom: Beszel
     en_us: Beszel Combined
