@@ -26,25 +26,20 @@ services:
         target: /var/run/docker.sock
     devices: []
     cap_add: []
-    networks:
-      - beszel_network
+    network_mode: host
     privileged: false
-networks:
-  beszel_network:
-    name: beszel_combined_network
-    driver: bridge
 x-casaos:
   author: self
   category: self-hosted
   description:
-    en_us: Beszel-Agent.
+    en_us: Beszel-Agent
   hostname: 
   icon: https://raw.githubusercontent.com/aronorriv/Docker-AppsCasa/refs/heads/main/Beszel/beszel%20Logo.png
   index: /
   is_uncontrolled: false
   port_map: ""
   scheme: http
-  store_app_id: beszel-agent
+  store_app_id: beszel
   title:
     custom: Beszel Agent
     en_us: Beszel Agent
