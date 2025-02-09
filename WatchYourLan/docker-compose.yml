@@ -1,0 +1,46 @@
+name: charismatic_alexandre
+services:
+  wyl:
+    cpu_shares: 90
+    command: []
+    container_name: WatchYourLan
+    deploy:
+      resources:
+        limits:
+          memory: 7937M
+    environment:
+      - COLOR=dark
+      - HOST=0.0.0.0
+      - IFACES=eth0
+      - PORT=8840
+      - SHOUTRRR_URL=
+      - THEME=united
+      - TIMEOUT=120
+      - TZ=Atlantic/Reykjavik
+    hostname: WatchYourLan
+    image: aceberg/watchyourlan:latest
+    labels:
+      icon: https://raw.githubusercontent.com/aronorriv/Docker-AppsCasa/0e199057289d3ff8a2fca65810dddd14fd024f7e/WatchYourLan/icon.svg
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /DATA/AppData/WatchYourLan
+        target: /data/WatchYourLAN
+    ports: []
+    devices: []
+    cap_add: []
+    network_mode: host
+    privileged: false
+x-casaos:
+  author: self
+  category: self
+  hostname: 
+  icon: https://raw.githubusercontent.com/aronorriv/Docker-AppsCasa/0e199057289d3ff8a2fca65810dddd14fd024f7e/WatchYourLan/icon.svg
+  index: /
+  is_uncontrolled: false
+  port_map: "8840"
+  scheme: http
+  store_app_id: charismatic_alexandre
+  title:
+    custom: WatchYourLan
+    en_us: wyl
